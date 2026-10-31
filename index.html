@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RegoPedia</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ============ HALAMAN LOGIN ============ -->
+  <main id="login-view" class="login-wrap" hidden>
+    <div class="login-card">
+      <div class="login-brand">
+        <span class="brand-mark">🌾</span>
+        <h1>RegoPedia</h1>
+        <p id="login-subtitle">Masuk untuk melihat prediksi harga bahan pokok</p>
+      </div>
+
+      <form id="auth-form" novalidate>
+        <label class="field">
+          <span>Email</span>
+          <input id="email" type="email" autocomplete="email" placeholder="nama@email.com" required>
+        </label>
+        <label class="field">
+          <span>Kata sandi</span>
+          <input id="password" type="password" autocomplete="current-password" placeholder="Minimal 6 karakter" required>
+        </label>
+        <p id="auth-msg" class="form-msg" role="alert" hidden></p>
+        <button id="auth-submit" class="btn btn-primary btn-block" type="submit">Masuk</button>
+      </form>
+
+      <div class="login-links">
+        <button id="toggle-mode" class="link-btn" type="button">Belum punya akun? Daftar</button>
+        <button id="forgot" class="link-btn" type="button">Lupa kata sandi?</button>
+      </div>
+      <p id="demo-note" class="demo-note" hidden>Mode demo</p>
+    </div>
+  </main>
+
+  <!-- ============ APLIKASI (setelah login) ============ -->
+  <div id="app-view" class="app" hidden>
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand"><span>🌾</span> RegoPedia</div>
+      <nav class="sidebar-nav" id="sidebar-nav"></nav>
+    </aside>
+    <div id="backdrop" class="backdrop"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <button id="menu-btn" class="icon-btn" aria-label="Buka menu">☰</button>
+        <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb"></nav>
+        <div class="topbar-right">
+          <span id="user-email" class="user-email"></span>
+          <button id="logout-btn" class="btn btn-outline">Keluar</button>
+        </div>
+      </header>
+      <main id="content" class="content"></main>
+      <footer class="footer">Prediksi bersifat perkiraan dan bukan jaminan harga pasar.</footer>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
